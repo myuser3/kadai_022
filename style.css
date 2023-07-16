@@ -1,0 +1,99 @@
+@charset "utf-8";
+
+h1, p, body {
+  margin: 0;
+}
+
+p, a {
+  font-size: 20px;
+}
+
+header {
+  margin-bottom: 20px;
+  background: rgb(244, 79, 79);
+  text-align: center;
+}
+
+h1 {
+  color: rgb(255, 255, 255);
+}
+
+/* Step4-2未着手 ←完了*/
+
+main {
+  margin: 10px;
+}
+
+#parent {
+  /* display:block; flexコンテナにするのが正解*/
+  /* justify-content: ; 均等な間隔*/
+  display: flex;
+  justify-content: space-around; /* aroundでは、東京が表示されなかった。←なし。 */
+  /* 1番左と1番右のアイテムも含め、均等な感覚で配置する */
+}
+
+.contents {
+  border: solid 3px rgb(238, 204, 204);
+  flex-basis: 25%; /* widthではなく、flex-basisを使うこと */
+  margin: 10px 15px;
+  padding: 20px 0;
+  text-align: center;
+  /* 線まで実装。続きはその後。 */
+}
+
+.contents p:nth-of-type(2)::first-letter { /* pとnthの間に「:」を忘れていた。付けたら表示 */
+  font-weight: bold;
+  color: rgb(97, 206, 249);
+}
+
+.contents img {
+  margin: 10px 0;
+  width: 70%;
+}
+
+/* h2要素について以下のスタイルを設定します */
+
+h2 {
+  font-size: 25px;
+  border-bottom: dotted 3px rgb(236, 122,122);
+}
+
+h2:before {
+  content: "●"; /* */
+  color: rgb(239,111,139);
+}
+
+/* 以下、footerタグのCSS */
+
+footer {
+  background: rgb(244, 79, 79);
+  text-align: center;
+}
+
+footer a {
+  color: rgb(255, 255, 255);
+}
+
+footer a:hover {
+  color: rgb(245, 178, 168);
+}
+
+footer a:visited {
+  color: rgb(193, 234, 251);
+}
+
+/* @media screen max-width: 768px {}は間違い*/
+
+@media screen and (max-width: 768px) {
+  h2 {
+    font-size: 30px;
+  }
+
+  p {
+    font-size: 25px;
+  }
+
+  #parent {
+    flex-direction: column;
+  }
+}
